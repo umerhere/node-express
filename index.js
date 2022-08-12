@@ -3,6 +3,8 @@ const express = require('express'),
   morgan = require('morgan'), //morgan is used to log the information to the screen, we can see the info about incoming requests 
   bodyParser = require('body-parser'); 
 const dishRouter = require('./routes/dishRouter');
+const promoRouter = require('./routes/promoRouter');
+const leaderRouter = require('./routes/leaderRouter');
 const hostname = 'localhost';
 const port = 3000;
 
@@ -12,6 +14,8 @@ app.use(bodyParser.json()); //will allow us to parse the body of req method give
 
 /* We now have created a grp for all the routes of /dishes. remember that dishRouter is a mini-express app itself */
 app.use('/dishes', dishRouter);
+app.use('/promos', promoRouter);
+app.use('/leaders', leaderRouter);
 
 app.use(express.static(__dirname + '/public'));
 
